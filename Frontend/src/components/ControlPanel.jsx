@@ -3,11 +3,6 @@ import { useState } from "react";
 import { generateFernetKey } from "../utils/crypto.js";
 
 function apiBase() {
-  const port = window.location.port;
-  if (port === "5173" || port === "5174") {
-    const wsUrl = import.meta.env.VITE_WS_URL || "http://localhost:8000";
-    return wsUrl.replace(/^ws/, "http");
-  }
   return window.location.origin;
 }
 

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 function detectWsUrl() {
   const port = window.location.port;
   if (port === "5173" || port === "5174") {
-    return import.meta.env.VITE_WS_URL || "ws://localhost:8000";
+    return import.meta.env.VITE_WS_URL || window.location.origin.replace(/^http/, "ws");
   }
   return window.location.origin.replace(/^http/, "ws");
 }
